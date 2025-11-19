@@ -11,18 +11,17 @@ public class Guide {
 
     @Id
     @Column(length = 100)
-    private String id; // frontend provides id strings (e.g. "g1_x3...")
+    private String id;
 
-    @Column(length = 250, nullable = false)
+    @Column(nullable = false, length = 250)
     private String title;
 
     @Column(length = 200)
     private String location;
 
-    // tags as a simple collection table
     @ElementCollection
     @CollectionTable(name = "guide_tags", joinColumns = @JoinColumn(name = "guide_id"))
-    @Column(name = "tag", length = 80)
+    @Column(name = "tag")
     private List<String> tags = new ArrayList<>();
 
     @Column(length = 1024)
@@ -34,40 +33,33 @@ public class Guide {
     @Column(columnDefinition = "TEXT")
     private String excerpt;
 
-    @Column(length = 120)
     private String author;
-
-    @Column(length = 60)
     private String duration;
-
     private Double rating;
-
-    private Boolean favorite = false;
+    private Boolean favorite;
 
     @Column(columnDefinition = "TEXT")
     private String directions;
 
-    // coords stored as doubles
     private Double coordsLat;
     private Double coordsLng;
 
-    @Column(length = 40)
-    private String status = "published"; // published | pending | rejected
+    private String status;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(nullable = false)
     private LocalDateTime createdAt;
 
     public Guide() {}
 
     @PrePersist
-    public void prePersist() {
-        if (this.createdAt == null) this.createdAt = LocalDateTime.now();
-        if (this.status == null) this.status = "published";
-        if (this.favorite == null) this.favorite = false;
+    public void onInsert() {
+        if (createdAt == null) createdAt = LocalDateTime.now();
+        if (status == null) status = "pending";
+        if (favorite == null) favorite = false;
+        if (tags == null) tags = new ArrayList<>();
     }
 
-    // Getters & Setters
-
+    // GETTERS & SETTERS
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
