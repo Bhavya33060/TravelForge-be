@@ -1,4 +1,4 @@
-package travel.config;
+/*package travel.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,5 +25,5 @@ public class CorsConfig {
             }
         };
     }
-}
+}*/
 
