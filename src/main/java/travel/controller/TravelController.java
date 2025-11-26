@@ -19,7 +19,7 @@ import travel.service.TravelService;
 
 @RestController
 @RequestMapping("/Travel")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 public class TravelController {
 
     @Autowired
