@@ -10,7 +10,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api/search")
-@CrossOrigin(origins = "http://localhost:5173") // allow Vite dev server; adjust for prod
+@CrossOrigin(origins = "*")
 public class SearchController {
 
     @Autowired
