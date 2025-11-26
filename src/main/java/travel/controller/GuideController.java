@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/guides")
-@CrossOrigin(origins = "http://localhost:5173")
-public class GuideController {
+@CrossOrigin(origins = "*")
+    public class GuideController {
 
     @Autowired
     private GuideRepository guideRepository;
