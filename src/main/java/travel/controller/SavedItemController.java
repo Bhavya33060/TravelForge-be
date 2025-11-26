@@ -9,8 +9,8 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api/saved")
-@CrossOrigin(origins = "http://localhost:5173")
-public class SavedItemController {
+@CrossOrigin(origins = "*")
+    public class SavedItemController {
 
     @Autowired
     private SavedItemRepository savedItemRepository;
