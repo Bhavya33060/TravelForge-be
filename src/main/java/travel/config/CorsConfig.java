@@ -13,15 +13,16 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+
                 registry.addMapping("/**")
-                    .allowedOrigins(
-                        "http://localhost:3000",   // React dev
-                        "http://localhost:5173",   // Vite dev
-                        "http://localhost:32000"   // ⭐ Kubernetes frontend
-                    )
-                    .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
-                    .allowedHeaders("*")
-                    .allowCredentials(true);
+                        .allowedOrigins(
+                                "http://localhost:3000",      // React local
+                                "http://localhost:5173",      // Vite local
+                                "http://localhost:32000"      // ⭐ Kubernetes frontend
+                        )
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
             }
         };
     }
