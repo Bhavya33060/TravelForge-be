@@ -2,12 +2,19 @@ package travel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class TravelApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(TravelApplication.class, args);
-		
-		System.out.println("BACKEND SUCCESSFULL");
-	}
+public class TravelApplication extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(TravelApplication.class);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(TravelApplication.class, args);
+        System.out.println("BACKEND SUCCESSFULLY STARTED");
+    }
 }
